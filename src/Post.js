@@ -20,23 +20,23 @@ function Post({
   return (
     <div className='post'>
       <div className="post__avatar">
-        <Avatar src=''></Avatar>
+        <Avatar src={avatar}></Avatar>
       </div>
       <div className="post__body">
         <div className="post__header">
           <div className="post__headerText">
             <h3>
-              Neel Gorasiya{" "} <span className='post__headerSpecial'>
-                <VerifiedUserIcon className='post__badge' />
-                {"@Neel2904"}
+              {displayName}{" "} <span className='post__headerSpecial'>
+                {verified && <VerifiedUserIcon className='post__badge' />}
+                @{userName}
               </span>
             </h3>
           </div>
           <div className="post_headerDescription">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti tempore accusantium fugiat placeat qui nisi tempora temporibus quas cupiditate mollitia nulla ab itaque laborum, cum vel. Quae laborum quam incidunt?</p>
+            <p>{text}</p>
           </div>
         </div>
-        <img src="" alt="" />
+        <img src={image} alt="" />
         <div className="post__footer">
           <ChatBubbleOutlineIcon fontSize="small" />
           <RepeatIcon fontSize='small' />
