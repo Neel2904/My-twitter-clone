@@ -2,7 +2,9 @@ module.exports = {
   content: [
     "./pages/index.js",
     "./components/Sidebar.js",
-    "./components/SidebarLink.js"
+    "./components/SidebarLink.js",
+    "./components/Feed.js",
+    "./components/Input.js"
   ],
   theme: {
     extend: {},
