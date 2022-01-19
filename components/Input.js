@@ -12,6 +12,7 @@ import { Picker } from 'emoji-mart'
 import { db, storage } from "../firebase"
 import { addDoc, collection, doc, serverTimestamp, updateDoc } from '@firebase/firestore'
 import { getDownloadURL, ref, uploadString } from "@firebase/storage"
+import { useSession } from "next-auth/react"
 
 
 function Input() {
@@ -21,15 +22,17 @@ function Input() {
   const [showEmojis, setShowEmojis] = useState(false)
   const [loading, setLoading] = useState(false)
   const filePickerRef = useRef(null)
+  const { data: session } = useSession();
+
   const sendPost = async() => {
     if(loading) return;
     setLoading(true);
     
     const docRef = await addDoc(collection(db, 'posts'), {
-      // id: sessionStorage.user.uid,
-      // username: sessionStorage.user.name,
-      // userImg: sessionStorage.user.image,
-      // tag: sessionStorage.user.tag,
+      id: session.user.uid,
+      username: session.user.name,
+      userImg: session.user.image,
+      tag: session.user.tag,
       text:input,
       timestamp: serverTimestamp(),
     });
@@ -74,7 +77,7 @@ function Input() {
 
   return (
     <div className={`border-b border-gray-700 p-3 flex space-x-3 overflow-y-scroll scrollbar-hide ${loading && "opacity-60"}`}>
-      <img src="" alt="" className="h-11 w-11 rounded-full cursor-pointer" />
+      <img src={session.user.image} alt="" className="h-11 w-11 rounded-full cursor-pointer" />
       <div className="w-full divide-y divide-gray-700">
         <div className={`${selectedFile && "pb-7"} ${input && "space-y-2.5"}`}>
           <textarea value={input} rows="2" placeholder="What's happening" onChange={(e)=>{
@@ -127,7 +130,7 @@ function Input() {
               </div>
               <button className='bg-[#1d9bf0] text-white rounded-full px-4 py-1.5 font-bold shadow-md hover:bg-[#1a8cd8] disabled:hover:bg-[#1d9bf0] disabled:opacity-50 disabled:cursor-default' 
               disabled={!input.trim() && !selectedFile} 
-              // onClick={sendPost}
+              onClick={sendPost}
               >Tweet</button>
           </div>
         )}

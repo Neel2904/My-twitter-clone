@@ -4,8 +4,10 @@ module.exports = {
     "./components/Sidebar.js",
     "./components/SidebarLink.js",
     "./components/Feed.js",
-    "./components/Input.js"
+    "./components/Input.js",
+    "./components/Login.js",
   ],
+  // purge: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {},
   },
