@@ -6,6 +6,7 @@ module.exports = {
     "./components/Feed.js",
     "./components/Input.js",
     "./components/Login.js",
+    "./components/Post.js",
   ],
   // purge: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
   theme: {

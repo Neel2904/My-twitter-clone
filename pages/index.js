@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Sidebar from '../components/Sidebar';
 import Feed from '../components/Feed';
 import Login from '../components/Login';
+import Modal from '../components/Modal';
 import { getProviders, getSession, useSession } from "next-auth/react";
 
 
@@ -23,6 +24,8 @@ export default function Home({ trendingResults, followResults, providers }) {
         <Sidebar />
 
         <Feed />
+
+        <Modal />
 
       </main>
     </div>
