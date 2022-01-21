@@ -1,6 +1,7 @@
 module.exports = {
   content: [
     "./pages/index.js",
+    "./pages/[id].js",
     "./components/Sidebar.js",
     "./components/SidebarLink.js",
     "./components/Feed.js",
@@ -8,6 +9,8 @@ module.exports = {
     "./components/Login.js",
     "./components/Post.js",
     "./components/Modal.js",
+    "./components/Widgets.js",
+    "./components/Trending.js",
   ],
   // purge: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
   theme: {
