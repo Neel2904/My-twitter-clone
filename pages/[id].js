@@ -20,7 +20,7 @@ import Comment from "../components/Comment";
 import Head from "next/head";
 import Login from "../components/Login";
 
-function postPage({ trendingResults, followResults, providers }) {
+function PostPage({ trendingResults, followResults, providers }) {
 
   const {data: session} = useSession();
   const [isOpen, setIsOpen] = useRecoilState(modalState);
@@ -91,7 +91,7 @@ function postPage({ trendingResults, followResults, providers }) {
   )
 }
 
-export default postPage;
+export default PostPage;
 
 export async function getServerSideProps(context) {
   const trendingResults = await fetch("https://jsonkeeper.com/b/NKEV").then(
