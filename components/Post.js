@@ -32,12 +32,24 @@ import { db } from "../firebase";
 function Post({ id, post, postPage }) {
 
   const { data: session } = useSession();
-  const {isOpen, setIsOpen} = useRecoilState(modalState);
-  const {postId, setPostId} = useRecoilState(postIdState);
+  const [isOpen, setIsOpen] = useRecoilState(modalState);
+  const [postId, setPostId] = useRecoilState(postIdState);
   const [comments, setComments] = useState([]);
   const [liked, setLiked] = useState(false);
   const [likes, setLikes] = useState([]);
   const router = useRouter()
+
+  useEffect(
+    () =>
+    onSnapshot(
+      query(collection(db, "posts", id, "comments"), orderBy("timestamp", "desc")),
+      (snapshot) => {
+        setComments(snapshot.docs);
+      }
+    ),
+    [db, id]
+  );
+
 
   useEffect(() => onSnapshot(collection(db, "posts", id, "likes"), (Snapshot) => 
       setLikes(Snapshot.docs)
