@@ -3,13 +3,12 @@ import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBcmXnkmDMsSA08qExLDSh4MzPs33ZjUNY",
-  authDomain: "twitter-clone-44465.firebaseapp.com",
-  projectId: "twitter-clone-44465",
-  storageBucket: "twitter-clone-44465.appspot.com",
-  messagingSenderId: "432638957177",
-  appId: "1:432638957177:web:7665d739671863362626a8",
-  measurementId: "G-6Y5ZE1LJ2N"
+  apiKey: "AIzaSyCVEZ85szovu_49P1KI17d9dd6YEpHsw1A",
+  authDomain: "my-twitter-4e2b6.firebaseapp.com",
+  projectId: "my-twitter-4e2b6",
+  storageBucket: "my-twitter-4e2b6.appspot.com",
+  messagingSenderId: "798443233938",
+  appId: "1:798443233938:web:dc0e9a99a38a051b647c4b"
 };
 
 
